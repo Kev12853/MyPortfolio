@@ -1,0 +1,15 @@
+{% extends "PropertiesApp/properties_app_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="w3-panel w3-red w3-round-xlarge">
+  <h3>Create a new lease</h3>
+  <form method="post" color="black">    
+    {{ form|crispy }}
+    <button class="w3-button w3-round-large w3-teal" type="submit">Save</button>
+  </form>
+</div>
+
+
+{% endblock content %}

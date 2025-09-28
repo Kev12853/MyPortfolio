@@ -1,0 +1,82 @@
+W3.CSS Margin Classes
+W3.CSS provides the following margin classes:
+
+Class	            Defines
+w3-margin	        Adds a 16px margin to all sides of an element
+w3-margin-top	    Adds a 16px top margin to an element
+w3-margin-right	    Adds a 16px right margin to an element
+w3-margin-bottom	Adds a 16px bottom margin to an element
+w3-margin-left	    Adds a 16px left margin to an element
+
+<div class="w3-container">
+  <h1>Using w3-margin</h1>
+
+  <div class="w3-border">
+    <div class="w3-container w3-margin w3-green">
+      <p>The w3-margin class adds 16px margin to all sides of an element.</p>
+    </div>
+  </div>
+</div>
+
+
+w3-section	        Adds a 16px top and bottom margin to an element
+
+<div class="w3-container">
+  <h2>Displaying Sections</h2>
+  <p>The w3-section class adds a 16px top and bottom margin to any HTML element, and can be used to separate sections of HTML content:</p>
+</div>
+<div class="w3-container w3-blue">
+  <h1>I am Blue</h1>
+</div>
+<div class="w3-container w3-green">
+  <h1>I am Green</h1>
+</div>
+
+<div class="w3-container w3-section w3-blue">
+  <h1>I am Blue</h1>
+</div>
+<div class="w3-container w3-section w3-green">
+  <h1>I am Green</h1>
+</div>
+===================================================================================================
+
+W3.CSS Padding Number Classes
+The w3-padding-number classes add top and bottom padding to any HTML element:
+
+Class	        Defines
+w3-padding-16	Adds 16px top and bottom padding to an element
+w3-padding-24	Adds 24px top and bottom padding to an element
+w3-padding-32	Adds 32px top and bottom padding to an element
+w3-padding-48	Adds 48px top and bottom padding to an element
+w3-padding-64	Adds 64px top and bottom padding to an element
+
+<div class="w3-container">
+
+<div class="w3-panel w3-padding-16 w3-orange">
+  <h4>w3-padding-16</h4>
+  <p>I have 16px top and bottom padding</p>
+</div>
+
+<div class="w3-panel w3-padding-24 w3-orange">
+  <h4>w3-padding-24</h4>
+  <p>I have 24px top and bottom padding</p>
+</div>
+
+<div class="w3-panel w3-padding-32 w3-orange">
+  <h4>w3-padding-32</h4>
+  <p>I have 32px top and bottom padding</p>
+</div>
+
+<div class="w3-panel w3-padding-48 w3-orange">
+  <h4>w3-padding-48</h4>
+  <p>I have 48px top and bottom padding</p>
+</div>
+
+<div class="w3-panel w3-padding-64 w3-orange">
+  <h4>w3-padding-64</h4>
+  <p>I have 64px top and bottom padding</p>
+</div>
+
+</div>
+
+======================================================================

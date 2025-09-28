@@ -1,0 +1,16 @@
+{% extends "PropertiesApp/properties_app_base.html" %}
+
+<h3>Our Sidebar</h3>
+
+{% comment %} {% block content %}
+
+<div class="w3card w3-padding w3-white">
+    <p class='text-muted'>This is the list tenant page.</p>
+    <ul class="w3-ul">
+        {% for tenant in tenants %}
+            <li class="w3-container w3-blue">{{ tenant.first_name }} {{ tenant.last_name }} - {{ tenant.email }}</li>
+        {% empty %}
+            <li class="w3-container">No tenants available.</li>
+        {% endfor %}
+</div>
+{% endblock content %} {% endcomment %}

@@ -1,0 +1,14 @@
+{% extends "PropertiesApp/properties_app_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="w3-container w3-blue w3-round-xlarge"  style="width:50%">
+    <h3>Our Sidebar</h3>
+    <p class='text-muted'>This is the update tenant page </p>
+    <form method="post">
+    {% csrf_token %}
+    {{ form|crispy}}
+        <button class="w3-button w3-round-large w3-teal" type="submit">Update</button>
+    </form>
+</div>
+{% endblock content %}

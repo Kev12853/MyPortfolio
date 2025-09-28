@@ -1,0 +1,15 @@
+{% extends "PropertiesApp/properties_app_base.html" %}
+
+{% block content %}
+
+    <h2>Tenant Details</h2>
+    <div class="w3-container w3-blue w3-round-xlarge" style="width:50%">
+        <h3>Our Sidebar</h3>
+        <p class='text-muted'>This is the tenant details page </p>
+        <h2>{{ tenant.first_name }} {{ tenant.last_name }}</h2>
+        <p>Email: {{ tenant.email }}</p>   
+    </div>
+    <a href="{% url 'list-tenant' %}">Back to list</a>
+    <a href="{% url 'update-tenant' tenant.pk %}">Edit</a>
+    <a href="{% url 'delete-tenant' tenant.pk %}">Delete</a>
+  {% endblock content %}

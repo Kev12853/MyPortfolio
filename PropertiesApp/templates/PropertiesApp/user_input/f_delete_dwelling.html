@@ -1,0 +1,13 @@
+{% extends "PropertiesApp/properties_app_base.html" %}
+
+{% block content %}
+<div class="w3-container w3-blue" style="width:50%">
+    <h3>Our Sidebar</h3>
+    <p class='text-muted'>This is the delete dwelling page </p>
+    <form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete this dwelling?</p>
+        <button class="w3-button w3-round-large w3-teal" type="submit">Confirm Delete</button>
+    </form>
+</div>
+{% endblock content %}

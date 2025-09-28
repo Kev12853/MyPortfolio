@@ -1,0 +1,120 @@
+{% load static %}
+{% load crispy_forms_tags%}
+
+<!DOCTYPE html>
+
+<style>
+  html, body {
+    height: 100vh;
+    margin: 0;
+  }
+  p {
+    color: yellow;
+  }
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+  }
+</style>
+
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+
+    <!-- W3.CSS -->
+    <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">     -->
+    <link href="{%static 'css/w3.css'%}" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">  
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script> 
+
+    <!-- HTMX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/2.0.7/htmx.min.js" integrity="sha512-IisGoumHahmfNIhP4wUV3OhgQZaaDBuD6IG4XlyjT77IUkwreZL3T3afO4xXuDanSalZ57Un+UlAbarQjNZCTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    
+
+    
+  {% block title %}
+    <title>Portfolio Manager</title>
+  {% endblock title %}
+    
+</head>
+
+<body bgcolor= "red" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+
+  <!-- Main Layout Grid -->
+  <div class="w3-grid" style="grid-template-columns:200px auto" style="height:100vh">
+
+    <!-- Image (Row 1, Col 1) -->
+    <div class="w3-padding w3-green" style="grid-column:1; grid-row:1" >
+      Images
+    </div>
+    <!---->
+
+    <!-- Top Navigation Bar (Row 1, Col 2) -->
+    <header >
+      <div class="w3-bar w3-black" style="grid-column:2; grid-row:1"  >
+        <a href={% url 'home' %} class="w3-bar-item w3-button">Home</a>
+        <a href="#" class="w3-bar-item w3-button">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button">Link 3</a>
+      </div>
+    </header>
+    <!---->
+
+    <!-- Side Navigation (Row 2, Col 1)-->
+    <div class=" w3-light-grey w3-bar-block" style="grid-column:1; grid-row:2"  >
+        <a href={% url 'create-tenant' %} class="w3-bar-item w3-button">Create Tenant</a>
+        <a href="{% url 'create-dwelling' %}" class="w3-bar-item w3-button">Create Dwelling</a>
+        <a href="{% url 'create-lease' %}" class="w3-bar-item w3-button">Create Lease</a>
+        <a href="{% url 'list-tenant' %}" class="w3-bar-item w3-button">List Tenants</a>
+        <a href="{% url 'list-dwelling' %}" class="w3-bar-item w3-button">List Dwellings</a>
+        <a href="{% url 'list-lease' %}" class="w3-bar-item w3-button">List Leases</a>
+        
+    </div>
+    <!---->
+
+    <!-- Content (Row 2, Col 2)-->
+    <div class="w3-padding w3-orange" style="grid-column:2; grid-row:2;"  >
+      {% block content %}{% endblock content %}
+    </div>
+    <!---->
+
+    <!-- Footer (Row 3, Col 1 span 2)-->
+    <div class="footer">
+      <p>Footer</p>
+    </div>
+
+  </div>
+
+  <!-- End Main Layout Grid -->
+
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+
+ 
+
+</script>
+</body>
+</html>

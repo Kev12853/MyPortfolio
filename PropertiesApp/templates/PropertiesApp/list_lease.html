@@ -1,0 +1,17 @@
+{% extends "PropertiesApp/list_objects.html" %}
+
+{% block title %}
+    <title>List dwellings</title>
+{% endblock title %}
+
+{% block content %}
+<div class="w3card w3-padding w3-white">
+    <p class='text-muted'>This is the list leases page.</p>
+    <ul class="w3-ul">
+        {% for lease in leases %}
+            <li class="w3-container w3-blue"> <a href="{% url 'detail-lease' lease.pk %}" > {{ lease.tenant }}</a> {{ lease.dwelling }} - {{ lease.start_date }}</li>
+        {% empty %}
+            <li class="w3-container">No leases available.</li>
+        {% endfor %}
+</div>
+{% endblock content %}

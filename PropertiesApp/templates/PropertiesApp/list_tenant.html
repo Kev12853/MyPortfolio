@@ -1,0 +1,17 @@
+{% extends "PropertiesApp/list_objects.html" %}
+
+{% block title %}
+    <title>List Tenants</title>
+{% endblock title %}
+
+{% block content %}
+<div class="w3-container w3-blue w3-round-xlarge" style="width:50%">
+    <p class='text-muted'>This is the list tenant page.</p>
+    <ul class="w3-ul">
+        {% for tenant in tenants %}
+            <li class="w3-container w3-blue" > <a href="{% url 'detail-tenant' tenant.pk %}" > {{ tenant.first_name }}</a> {{ tenant.last_name }} - {{ tenant.email }}</li>
+        {% empty %}
+            <li class="w3-container">No tenants available.</li>
+        {% endfor %}
+</div>
+{% endblock content %}

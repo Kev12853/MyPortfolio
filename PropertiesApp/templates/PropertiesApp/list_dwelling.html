@@ -1,0 +1,17 @@
+{% extends "PropertiesApp/list_objects.html" %}
+
+{% block title %}
+    <title>List dwellings</title>
+{% endblock title %}
+
+{% block content %}
+<div class="w3card w3-padding w3-white">
+    <p class='text-muted'>This is the list dwellings page.</p>
+    <ul class="w3-ul">
+        {% for dwelling in dwellings %}
+            <li class="w3-container w3-blue"> <a href="{% url 'detail-dwelling' dwelling.pk %}"> {{ dwelling.house }}</a> {{ dwelling.street }} - {{ dwelling.town }}</li>
+        {% empty %}
+            <li class="w3-container">No dwellings available.</li>
+        {% endfor %}
+</div>
+{% endblock content %}
