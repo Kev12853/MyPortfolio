@@ -1,3 +1,5 @@
+from django.shortcuts import render
+from django.views import View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.urls import reverse_lazy
@@ -10,6 +12,21 @@ from PropertiesApp.forms.tenant_forms import (
     TenantDeleteForm,
     TenantUpdateForm,
 )
+
+class TenantHomeView(CreateView):
+    model = Tenant
+    template_name = "PropertiesApp/tenant_home.html"
+    form_class = TenantCreateForm
+    success_url = reverse_lazy("tenant_home")  # Adjust the URL name as needed
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["tenants"] = Tenant.objects.all()  # Include all tenants in the context
+        return context
+
+    def form_valid(self, form):
+        tenant = form.save()
+        return super().form_valid(form)  # Redirects to success_url after saving
 
 
 class TenantCreateView(CreateView):

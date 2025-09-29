@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load partials %}
+
+{% startpartial tenant-item %}
+    <li class="list-group-item">
+        {{ tenant.first_name }} {{tenant.last_name}}
+    </li>
+{% endpartial tenant-item %}
+
+{% block content %}
+
+<div class = "row">
+    <div class="col-12 col-sm-6">
+        <h2>Add a tenant</h2>
+        <form hx-post="{% url 'tenant_home' %}" hx-target="#tenant-list" hx-swap="beforeend" hx-put="/" hx-on::after-request="if(event.detail.successful) this.reset()">
+            {{ form.as_div }}
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </form>
+    </div>
+
+    <div class="col-12 col-sm-6">
+        <h2>tenant List</h2>
+        <ul class="list-group" id="tenant-list">
+            {% for tenant in tenants %}
+                {% partial tenant-item %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
-    "template_partials",
+    # "PropertiesApp",
     "crispy_forms",
+    "template_partials",
     # "crispy_bootstrap5",
     "crispy_tailwind",
 ]

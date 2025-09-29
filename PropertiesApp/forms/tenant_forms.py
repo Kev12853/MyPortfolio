@@ -36,12 +36,6 @@ class TenantCreateForm(forms.ModelForm):
         )
 
 
-"""     self.fields['first_name'].widget.attrs.update({'class': 'form-control', 'placeholder': 'First Name'})
-        self.fields['last_name'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Last Name'})
-        self.fields['email'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Email'})
-        self.fields['phone'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Phone Number'}) """
-
-
 class TenantListForm(forms.ModelForm):
     class Meta:
         model = Tenant
