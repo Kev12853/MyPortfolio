@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
-    # "PropertiesApp",
     "crispy_forms",
     "template_partials",
     # "crispy_bootstrap5",
@@ -74,7 +73,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         'DIRS': [BASE_DIR / 'MyPortfolioBase/templates',
-                 BASE_DIR / 'PropertiesApp/templates'],
+                 BASE_DIR / 'PropertiesApp/templates/PropertiesApp'],
         # Comment this out when manually defining loaders.
         #"APP_DIRS": True,
         "OPTIONS": {

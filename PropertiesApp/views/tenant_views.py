@@ -24,6 +24,16 @@ class TenantHomeView(CreateView):
         context["tenants"] = Tenant.objects.all()  # Include all tenants in the context
         return context
 
+    def post(self, request):
+        form = TenantCreateForm(request.POST)
+        if form.is_valid():
+            tenant = form.save()
+            context = {'tenant': tenant}
+            return render(request,'tenant_home.html#tenant-item', context)  # Redirect to the index view after saving
+
+        context = {'form': form}  # Include the form in the context for error display
+        return render(request, "tenant_home.html", context)
+
     def form_valid(self, form):
         tenant = form.save()
         return super().form_valid(form)  # Redirects to success_url after saving
