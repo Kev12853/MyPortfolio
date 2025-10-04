@@ -12,7 +12,7 @@
 <div class = "row"> <!-- "row" puts the input form and the list on the same line (row) ie side by side -->
     <div class="col-12 col-sm-6 w3-container w3-blue w3-round-xlarge">
         <h2>Add a tenant</h2>
-        <form hx-post="{% url 'tenant_home' %}" hx-target="#tenant-list" hx-swap="beforeend" hx-put="/" hx-on::after-request="if(event.detail.successful) this.reset()">
+        <form hx-post="{% url 'tenant-home' %}" hx-target="#tenant-list" hx-swap="beforeend" hx-put="/" hx-on::after-request="if(event.detail.successful) this.reset()">
             {{ form.as_div }}
             <button type="submit" class="btn btn-primary mt-2">Submit</button>
         </form>

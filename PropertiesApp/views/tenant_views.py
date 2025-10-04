@@ -13,7 +13,17 @@ from PropertiesApp.forms.tenant_forms import (
     TenantUpdateForm,
 )
 
-class TenantHomeView(CreateView):
+def tenantHomeView(request):
+    return render(request, 'PropertiesApp/tenant_home.html')
+
+
+def tenantsList(request):
+    tenants = Tenant.objects.all()
+    context = {'tenants': tenants}
+    return render(request, "PropertiesApp/tenant_list.html", context)
+
+
+""" class TenantHomeView(CreateView):
     model = Tenant
     template_name = "PropertiesApp/tenant_home.html"
     form_class = TenantCreateForm
@@ -34,10 +44,12 @@ class TenantHomeView(CreateView):
         context = {'form': form}  # Include the form in the context for error display
         return render(request, "tenant_home.html", context)
 
+
     def form_valid(self, form):
         tenant = form.save()
         return super().form_valid(form)  # Redirects to success_url after saving
 
+""" 
 
 class TenantCreateView(CreateView):
     model = Tenant

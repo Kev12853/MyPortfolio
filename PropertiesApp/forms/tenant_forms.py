@@ -10,7 +10,7 @@ class TenantCreateForm(forms.ModelForm):
         model = Tenant
         fields = ["first_name", "last_name", "email", "phone"]
 
-    def __init__(self, *args, **kwargs):
+    """ def __init__(self, *args, **kwargs):
         super(TenantCreateForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = "post"
@@ -34,7 +34,7 @@ class TenantCreateForm(forms.ModelForm):
                 " dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800",
             ),
         )
-
+ """
 
 class TenantListForm(forms.ModelForm):
     class Meta:

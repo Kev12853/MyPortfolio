@@ -8,9 +8,16 @@ urlpatterns = [
         tenant_views.TenantCreateView.as_view(),
         name="create-tenant",
     ),
-    path("list_tenant.html", 
+    path(
+        "list_tenant.html", 
         tenant_views.TenantListView.as_view(),
-        name="list-tenant"),
+        name="list-tenant"
+        ),
+    path(
+        "tenant_list.html", 
+        tenant_views.tenantsList,
+        name="list-tenant"
+        ),
     path(
         "detail_tenant/<int:pk>/",
         tenant_views.TenantDetailView.as_view(),
@@ -28,8 +35,8 @@ urlpatterns = [
     ),
     path(
         "tenant_home",
-        tenant_views.TenantHomeView.as_view(),
-        name="tenant_home",
+        tenant_views.tenantHomeView,
+        name="tenant-home",
     ),    
     path(
         "create_dwelling.html",

@@ -1,0 +1,10 @@
+@use '../../PropertiesApp/static/css/w3'
+    
+    
+$myButtonBackgroundColor: blue
+$myButtonTextColor: white
+
+@mixin myColor($myColor: $myButtonBackgroundColor, $myTextColor: $myButtonTextColor)
+    background-color: $myColor
+    color: $myTextColor
+    @extend .w3-btn
