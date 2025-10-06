@@ -4,20 +4,17 @@ from PropertiesApp.views import dwelling_views, lease_views, tenant_views
 
 urlpatterns = [
     path(
+        "test.html",
+        tenant_views.TestView,
+        name="test",
+    ),
+    path(
         "create_tenant.html",
         tenant_views.TenantCreateView.as_view(),
         name="create-tenant",
     ),
-    path(
-        "list_tenant.html", 
-        tenant_views.TenantListView.as_view(),
-        name="list-tenant"
-        ),
-    path(
-        "tenant_list.html", 
-        tenant_views.tenantsList,
-        name="list-tenant"
-        ),
+    path("list_tenant.html", tenant_views.TenantListView.as_view(), name="list-tenant"),
+    path("tenant_list.html", tenant_views.tenantsList, name="list-tenant"),
     path(
         "detail_tenant/<int:pk>/",
         tenant_views.TenantDetailView.as_view(),
@@ -37,7 +34,7 @@ urlpatterns = [
         "tenant_home",
         tenant_views.tenantHomeView,
         name="tenant-home",
-    ),    
+    ),
     path(
         "create_dwelling.html",
         dwelling_views.DwellingCreateView.as_view(),

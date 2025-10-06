@@ -1,10 +1,69 @@
-@use '../../PropertiesApp/static/css/w3'
+@use 'lists' as lst
+@use 'buttons' as btn
     
-    
-$myButtonBackgroundColor: blue
-$myButtonTextColor: white
+$myButtonBackgroundColor: pink
+$button-text-color: white
 
-@mixin myColor($myColor: $myButtonBackgroundColor, $myTextColor: $myButtonTextColor)
+@mixin myColor($myColor: $myButtonBackgroundColor,
+ $myTextColor: $button-text-color)
     background-color: $myColor
     color: $myTextColor
-    @extend .w3-btn
+
+@mixin myListHeader()
+
+@mixin myPanel()
+    //@extend .w3-card-4
+    //@extend .w3-round-large
+    //padding: 0.01em 16px
+    @extend .myFlexContainer
+
+
+.myFlexContainer         
+    display: flex /* Enables flexbox */
+    //align-items: center /* vertically */
+    //justify-content: space-between /* horizontally */
+    background-color: #f03939ff
+
+@mixin myFlexItem()
+    display: flex /* Enables flexbox */
+    flex: 1 /* Each item takes equal space */
+    align-items: center /* vertically */
+    justify-content: space-between /* horizontally */
+    margin: 10px /* Space around each item */
+    padding: 20px /* Padding inside each item */
+    background-color: #2c20d3ff /* Background color for items */
+    border: 3px solid #f1f5f5 /* Border for items */
+    border-radius: 5px /* Rounded corners for items */
+    color: green /* Text color for items */
+    text-align: center /* Centered text */
+    font-weight: bold /* Bold text */
+    font-size: 1.2em /* Slightly larger text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) /* Subtle shadow for depth */
+    #header-title-div
+        display: flex
+        align-items: center
+        justify-content: space-between
+        background-color: #e7f56dff /* Background color for items */
+    #header-buttons
+        display: flex
+        flex-basis: auto
+        align-items: right
+        justify-content: space-between
+        background-color: #37f58dff /* Background color for items */
+        padding: 10px /* Padding inside each item */
+    button
+       @include btn.button-3
+
+
+// Example usage:// .MyButton
+//   @include myColor(pink, white)  
+// .MyPanel
+//   @include myPanel
+// .MyPanelHeader
+//   @include myListHeader
+// .MyFlexContainer
+//   @include myFlexContainer
+// .MyFlexItem
+//   @include myFlexItem
+// .MyCustomButton
+//   @include myColor(blue, yellow)

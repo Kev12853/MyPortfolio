@@ -4,14 +4,24 @@
     Tenant make_list
 {% endblock title %}
 
-{% block content %}
-    <h2 class="mt-4 mb-6 text-2xl leading-none tracking-tight text-white md:text-3xl lg:text-4xl flex items-center mb-4">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 me-2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-        </svg>
-        Tenants
-    </h2>
-    <p class="myClass"> tester </p>
+<!-- mt-4 mb-6 text-2xl leading-none tracking-tight text-white md:text-3xl lg:text-4xl flex items-center mb-4 -->
+{% block content %} 
+<div class="MyPanel" id="title-panel" >
+    <header class="MyFlexItem" id="title-header" >
+        <div id="header-title-div" >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 me-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            </svg>
+            <p>Tenants </p>
+        </div>
+        <div id=header-buttons>
+            <button id="delete-button"> Delete Tenant </button>
+            <button id="add-button"> Add Tenant </button>
+            <button id="cancel-button"> Cancel </button>
+        </div>
+    </header>
+</div>
+
     <div class= "relative overflow-x-auto text-yellow" >
         {% if tenants %}
         <table class="table" > <!-- class="table" is a Daisy UI class-->

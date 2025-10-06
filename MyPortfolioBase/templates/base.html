@@ -31,8 +31,8 @@
 
 
     <!-- W3.CSS -->
-   <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">-->
-    <link href="{% static 'css/w3.css' %}" rel="stylesheet">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <!-- <link href="{% static 'css/w3.css' %}" rel="stylesheet">-->
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">  
@@ -71,7 +71,7 @@
         <a href={% url 'home' %} class="w3-bar-item w3-button">Home</a>
         <a href={% url 'tenant-home' %} class="w3-bar-item w3-button">Link 1</a>
         <a href={% url 'list-tenant' %} class="w3-bar-item w3-button">Link 2</a>
-        <a href="#" class="w3-bar-item w3-button">Link 3</a>
+        <a href={% url 'test' %} class="w3-bar-item w3-button">Link 3</a>
       </div>
     </header>
     <!---->

@@ -13,6 +13,11 @@ from PropertiesApp.forms.tenant_forms import (
     TenantUpdateForm,
 )
 
+
+def TestView(request):
+    return render(request, "PropertiesApp/test.html")
+
+
 def tenantHomeView(request):
     return render(request, 'PropertiesApp/tenant_home.html')
 
