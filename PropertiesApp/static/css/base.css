@@ -1,22 +1,17 @@
-.myFlexContainer, .MyPanel {
+.myFlexContainer, .MyPanel #title-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #f03939;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #86adda;
 }
 
-.MyColor {
-  background-color: pink;
-  color: white;
-}
-
-.MyFlexItem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.myFlexItem, .MyPanel #title-header div, .MyPanel #the_list_area {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -25,7 +20,6 @@
           justify-content: space-between;
   margin: 10px;
   padding: 20px;
-  background-color: #2c20d3;
   border: 3px solid #f1f5f5;
   border-radius: 5px;
   color: green;
@@ -35,34 +29,35 @@
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.MyFlexItem #header-title-div {
+.myFlexItem#header-title-div, .MyPanel #title-header div#header-title-div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  color: whitesmoke;
+  font-size: 1.5em;
+}
+.myFlexItem#header-buttons, .MyPanel #title-header div#header-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-color: #e7f56d;
 }
-.MyFlexItem #header-buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: auto;
-      flex-basis: auto;
-  -webkit-box-align: right;
-      -ms-flex-align: right;
-          align-items: right;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  background-color: #37f58d;
-  padding: 10px;
-}
-.MyFlexItem button {
+.myFlexItem button, .MyPanel #title-header div button, .MyPanel #the_list_area button {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -94,48 +89,121 @@
   margin: 5px;
   background-color: rgba(235, 240, 196, 0.862745098);
 }
-.MyFlexItem button#delete-button {
+.myFlexItem button#delete-button, .MyPanel #title-header div button#delete-button, .MyPanel #the_list_area button#delete-button {
   background-color: indianred;
 }
-.MyFlexItem button#add-button {
+.myFlexItem button#add-button, .MyPanel #title-header div button#add-button, .MyPanel #the_list_area button#add-button {
   background-color: limegreen;
 }
-.MyFlexItem button#cancel-button {
+.myFlexItem button#cancel-button, .MyPanel #title-header div button#cancel-button, .MyPanel #the_list_area button#cancel-button {
   background-color: whitesmoke;
   color: darkgrey;
 }
-.MyFlexItem button:focus:not(:focus-visible):not(.focus-visible) {
+.myFlexItem button:focus:not(:focus-visible):not(.focus-visible), .MyPanel #title-header div button:focus:not(:focus-visible):not(.focus-visible), .MyPanel #the_list_area button:focus:not(:focus-visible):not(.focus-visible) {
   -webkit-box-shadow: none;
           box-shadow: none;
   outline: none;
 }
-.MyFlexItem button:hover {
+.myFlexItem button:hover, .MyPanel #title-header div button:hover, .MyPanel #the_list_area button:hover {
   background-color: #f5ea54;
 }
-.MyFlexItem button:focus {
+.myFlexItem button:focus, .MyPanel #title-header div button:focus, .MyPanel #the_list_area button:focus {
   -webkit-box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
           box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
   outline: none;
 }
-.MyFlexItem button:disabled {
+.myFlexItem button:disabled, .MyPanel #title-header div button:disabled, .MyPanel #the_list_area button:disabled {
   background-color: #94d3a2;
   border-color: rgba(27, 31, 35, 0.1);
   color: rgba(255, 255, 255, 0.8);
   cursor: default;
 }
-.MyFlexItem button:active {
+.myFlexItem button:active, .MyPanel #title-header div button:active, .MyPanel #the_list_area button:active {
   background-color: #e47d29;
   -webkit-box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
           box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
 }
 
-.main-header {
+.MyPanel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #f0f0f0;
+}
+.MyPanel #the_list_area#the-table {
   background-color: red;
 }
 
-.test div {
-  color: blue;
+.MyColor {
+  background-color: pink;
+  color: white;
 }
-.test .main-header {
-  background-color: red;
+
+.modal-btn {
+  -webkit-transition: background 250ms;
+  transition: background 250ms;
+  padding: 16px 24px;
+  border-radius: 4px;
+  background-color: #0f0f0f;
+  color: #fcfcfc;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  margin-top: 32px;
+  display: inline-block;
+  text-decoration: none;
+}
+.modal-btn:hover, .modal-btn:focus {
+  background-color: rgba(15, 15, 15, 0.8666666667);
+}
+
+.modal {
+  position: absolute;
+  min-height: 100vh;
+  width: 100%;
+  top: 20;
+  left: 20;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 2;
+}
+.modal:not(:target) {
+  display: none;
+}
+
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+}
+
+.modal-content {
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  background: #fff;
+  width: 75%;
+  position: relative;
+  margin: auto;
+  height: 75%;
+  padding: 48px 24px;
+  border-radius: 4px;
+  max-width: 1000px;
+}
+
+.modal-close {
+  font-size: 36px;
+  text-decoration: none;
+  color: inherit;
+  position: absolute;
+  right: 24px;
+  top: 10px;
 }/*# sourceMappingURL=base.css.map */

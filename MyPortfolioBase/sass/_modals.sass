@@ -1,0 +1,53 @@
+
+@mixin modal-btn
+    transition: background 250ms
+    padding: 16px 24px
+    border-radius: 4px
+    background-color: #0f0f0f
+    color: #fcfcfc
+    text-transform: uppercase
+    font-size: 12px
+    letter-spacing: 0.1em
+    margin-top: 32px
+    display: inline-block
+    text-decoration: none
+    &:hover,
+    &:focus
+        background-color: #0f0f0fdd
+
+@mixin modal
+    position: absolute
+    min-height: 100vh
+    width: 100%
+    top: 20
+    left: 20
+    display: flex
+    z-index: 2
+    &:not(:target)
+        display: none
+
+@mixin modal-overlay
+    width: 100%
+    height: 100%
+    position: absolute
+    background-color: rgba(0, 0, 0, 0.5)
+    left: 0
+
+@mixin modal-content
+    transition: transform 1s
+    background: #fff
+    width: 75%
+    position: relative
+    margin: auto
+    height: 75%
+    padding: 48px 24px
+    border-radius: 4px
+    max-width: 1000px
+
+@mixin modal-close
+    font-size: 36px
+    text-decoration: none
+    color: inherit
+    position: absolute
+    right: 24px
+    top: 10px

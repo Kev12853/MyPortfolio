@@ -1,29 +1,30 @@
 @use 'mixins' as m
-
-.MyColor
-  @include m.myColor
+@use 'modals' as md
 
 .MyPanel
   @include m.myPanel
 
-.MyPanelHeader
-  @include m.myListHeader
-    
-//.MyFlexContainer
-  //@include m.myFlexContainer
+.MyColor
+  @include m.myColor
 
-.MyFlexItem
-  @include m.myFlexItem
+.modal-btn 
+  @include md.modal-btn
 
-.main-header 
-  background-color: red
+.modal 
+  @include md.modal
 
-.test
-  div
-    color: blue
-  .main-header
-    background-color: red
+.modal-overlay
+  @include md.modal-overlay
 
+.modal-content
+  @include md.modal-content
+  
+.modal-close
+  @include md.modal-close
+
+
+// .MyPanelHeader
+//   @include m.myListHeader
 
 // nav
 //   ul

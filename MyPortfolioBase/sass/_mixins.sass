@@ -1,5 +1,6 @@
 @use 'lists' as lst
 @use 'buttons' as btn
+@use 'colors' as col
     
 $myButtonBackgroundColor: pink
 $button-text-color: white
@@ -11,59 +12,52 @@ $button-text-color: white
 
 @mixin myListHeader()
 
-@mixin myPanel()
-    //@extend .w3-card-4
-    //@extend .w3-round-large
-    //padding: 0.01em 16px
-    @extend .myFlexContainer
+@mixin myPanel() // class applied to div that holds the entire page
+    display: flex
+    flex-direction: column
+    background-color: #f0f0f0
+    #title-header
+        @extend .myFlexContainer
+        div // any div inside the title-header
+            @extend .myFlexItem
 
+    #the_list_area
+        @extend .myFlexItem
+        &#the-table
+            background-color: red
 
-.myFlexContainer         
+.myFlexContainer   //class applied to the header      
     display: flex /* Enables flexbox */
-    //align-items: center /* vertically */
-    //justify-content: space-between /* horizontally */
-    background-color: #f03939ff
-
-@mixin myFlexItem()
-    display: flex /* Enables flexbox */
-    flex: 1 /* Each item takes equal space */
     align-items: center /* vertically */
     justify-content: space-between /* horizontally */
-    margin: 10px /* Space around each item */
-    padding: 20px /* Padding inside each item */
-    background-color: #2c20d3ff /* Background color for items */
-    border: 3px solid #f1f5f5 /* Border for items */
-    border-radius: 5px /* Rounded corners for items */
-    color: green /* Text color for items */
-    text-align: center /* Centered text */
-    font-weight: bold /* Bold text */
-    font-size: 1.2em /* Slightly larger text */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) /* Subtle shadow for depth */
-    #header-title-div
+    background-color: #86adda
+
+.myFlexItem  // class applied to each item in the header
+    align-items: center //* vertically */
+    justify-content: space-between //* horizontally */
+    margin: 10px //* Space around each item */
+    padding: 20px //* Padding inside each item */
+    border: 3px solid #f1f5f5 //* Border for items */
+    border-radius: 5px //* Rounded corners for items */
+    color: green //* Text color for items */
+    text-align: center //* Centered text */
+    font-weight: bold //* Bold text */
+    font-size: 1.2em //* Slightly larger text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) //* Subtle shadow for depth */
+    &#header-title-div
         display: flex
+        flex-basis: 30%
+        align-items: center
+        justify-content: left
+        color: col.$light-theme-text-color
+        font-size: 1.5em
+    &#header-buttons
+        display: flex
+        flex-basis: 60%
         align-items: center
         justify-content: space-between
-        background-color: #e7f56dff /* Background color for items */
-    #header-buttons
-        display: flex
-        flex-basis: auto
-        align-items: right
-        justify-content: space-between
-        background-color: #37f58dff /* Background color for items */
-        padding: 10px /* Padding inside each item */
+    &#the_list_area
+        //background-color: pink
     button
        @include btn.button-3
 
-
-// Example usage:// .MyButton
-//   @include myColor(pink, white)  
-// .MyPanel
-//   @include myPanel
-// .MyPanelHeader
-//   @include myListHeader
-// .MyFlexContainer
-//   @include myFlexContainer
-// .MyFlexItem
-//   @include myFlexItem
-// .MyCustomButton
-//   @include myColor(blue, yellow)

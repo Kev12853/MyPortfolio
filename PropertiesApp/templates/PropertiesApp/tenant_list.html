@@ -1,31 +1,39 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Tenant make_list
+    Tenant make list
 {% endblock title %}
 
 <!-- mt-4 mb-6 text-2xl leading-none tracking-tight text-white md:text-3xl lg:text-4xl flex items-center mb-4 -->
 {% block content %} 
-<div class="MyPanel" id="title-panel" >
-    <header class="MyFlexItem" id="title-header" >
-        <div id="header-title-div" >
+<div class="MyPanel" id="title-panel" ><!-- flex container -->
+    <header id="title-header" > <!-- flex container and flex item -->
+        <div id="header-title-div" > <!--flex item -->
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 me-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
             </svg>
             <p>Tenants </p>
         </div>
-        <div id=header-buttons>
+        <div id=header-buttons> <!-- flex item -->
             <button id="delete-button"> Delete Tenant </button>
-            <button id="add-button"> Add Tenant </button>
-            <button id="cancel-button"> Cancel </button>
+            <button id="add-button" class="accordion"> Add Tenant </button>
+            <button id="cancel-button" > Cancel </button>
+            <a class="modal-btn" href="#modal">Click here to open modal</a>
+            <section role="dialog" class="modal" id="modal" aria-labelledby="modal-title">
+                <a class="modal-overlay" href="#" tabindex="-1"></a>
+                <div class="modal-content">
+                  <a title="Close modal" aria-label="Close modal" href="#" class="modal-close">&times; </a>
+                  <h2 id="modal-title"> Hello there! </h2>
+                </div>
+              </section>
+
         </div>
     </header>
-</div>
-
-    <div class= "relative overflow-x-auto text-yellow" >
+<!-- another flex item -->
+    <div id="the_list_area" class= "relative overflow-x-auto" >
         {% if tenants %}
-        <table class="table" > <!-- class="table" is a Daisy UI class-->
-            <thead class="text-xs text-blue uppercase" >
+        <table id="the-table" class="table" > <!-- class="table" is a Daisy UI class-->
+            <thead class="text-xs uppercase " >
                 <tr>
                     <th class="px-6 py-3"> First Name </th>
                     <th class="px-6 py-3"> Last Name </th>
@@ -54,7 +62,24 @@
             </p>
         {% endif %}
     </div>
-
+</div>
+   
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+    </script>
 
 
     {% comment %} <div class="relative overflow-x-auto text-white">
