@@ -1,26 +1,46 @@
 @use 'mixins' as m
 @use 'modals' as md
+@use 'containers' as c
+@use 'colors' as col
+@use 'flex_containers' as fc
 
-.MyPanel
-  @include m.myPanel
+.MyPanelForLists
+  @include c.myPanel_for_lists
 
 .MyColor
-  @include m.myColor
+  @include col.myColor
 
-.modal-btn 
-  @include md.modal-btn
+.the_list_area
+  @include fc.myFlexItem
 
-.modal 
-  @include md.modal
+.the-table
+  @include c.the-table
 
-.modal-overlay
-  @include md.modal-overlay
+.main-header
+  @include c.main-header
 
-.modal-content
-  @include md.modal-content
+.MyButton
+  @include btn.button-3
+
+
   
-.modal-close
-  @include md.modal-close
+  
+  
+
+// .modal-btn 
+//   @include md.modal-btn
+
+// .modal 
+//   @include md.modal
+
+// .modal-overlay
+//   @include md.modal-overlay
+
+// .modal-content
+//   @include md.modal-content
+
+// .modal-close
+//   @include md.modal-close
 
 
 // .MyPanelHeader

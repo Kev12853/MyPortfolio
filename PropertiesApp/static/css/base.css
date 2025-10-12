@@ -1,17 +1,46 @@
-.myFlexContainer, .MyPanel #title-header {
+/* sets up the area that holds the lists to be a flex-item */
+.MyColors {
+  background-color: pink;
+  color: darkblue;
+}
+
+.MyFlexContainerColumn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-color: #86adda;
 }
 
-.myFlexItem, .MyPanel #title-header div, .MyPanel #the_list_area {
+.MyFlexContainerRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: rgba(96, 149, 160, 0.4588235294);
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.MyFlexItem {
+  /* class applied to each item in the header */
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -19,45 +48,47 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px;
-  padding: 20px;
-  border: 3px solid #f1f5f5;
+  padding: 10px;
+  border: 3px solid #15e2e2;
   border-radius: 5px;
   color: green;
   text-align: center;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 12px;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.myFlexItem#header-title-div, .MyPanel #title-header div#header-title-div {
+.MyFlexItem#header-title-div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-preferred-size: 30%;
-      flex-basis: 30%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  -webkit-box-align: top;
+      -ms-flex-align: top;
+          align-items: top;
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
   color: whitesmoke;
-  font-size: 1.5em;
+  font-size: 20px;
+  background-color: rgba(96, 149, 160, 0.4588235294);
 }
-.myFlexItem#header-buttons, .MyPanel #title-header div#header-buttons {
+.MyFlexItem#header-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-preferred-size: 60%;
-      flex-basis: 60%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-preferred-size: content;
+      flex-basis: content;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  background-color: rgba(108, 96, 160, 0.4588235294);
 }
-.myFlexItem button, .MyPanel #title-header div button, .MyPanel #the_list_area button {
+.MyFlexItem#header-buttons button {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -85,46 +116,46 @@
   -ms-touch-action: manipulation;
       touch-action: manipulation;
   vertical-align: middle;
-  white-space: nowrap;
+  white-space: nowra;
   margin: 5px;
   background-color: rgba(235, 240, 196, 0.862745098);
 }
-.myFlexItem button#delete-button, .MyPanel #title-header div button#delete-button, .MyPanel #the_list_area button#delete-button {
+.MyFlexItem#header-buttons button#delete-button {
   background-color: indianred;
 }
-.myFlexItem button#add-button, .MyPanel #title-header div button#add-button, .MyPanel #the_list_area button#add-button {
+.MyFlexItem#header-buttons button#add-button {
   background-color: limegreen;
 }
-.myFlexItem button#cancel-button, .MyPanel #title-header div button#cancel-button, .MyPanel #the_list_area button#cancel-button {
+.MyFlexItem#header-buttons button#cancel-button {
   background-color: whitesmoke;
   color: darkgrey;
 }
-.myFlexItem button:focus:not(:focus-visible):not(.focus-visible), .MyPanel #title-header div button:focus:not(:focus-visible):not(.focus-visible), .MyPanel #the_list_area button:focus:not(:focus-visible):not(.focus-visible) {
+.MyFlexItem#header-buttons button:focus:not(:focus-visible):not(.focus-visible) {
   -webkit-box-shadow: none;
           box-shadow: none;
   outline: none;
 }
-.myFlexItem button:hover, .MyPanel #title-header div button:hover, .MyPanel #the_list_area button:hover {
+.MyFlexItem#header-buttons button:hover {
   background-color: #f5ea54;
 }
-.myFlexItem button:focus, .MyPanel #title-header div button:focus, .MyPanel #the_list_area button:focus {
+.MyFlexItem#header-buttons button:focus {
   -webkit-box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
           box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
   outline: none;
 }
-.myFlexItem button:disabled, .MyPanel #title-header div button:disabled, .MyPanel #the_list_area button:disabled {
+.MyFlexItem#header-buttons button:disabled {
   background-color: #94d3a2;
   border-color: rgba(27, 31, 35, 0.1);
   color: rgba(255, 255, 255, 0.8);
   cursor: default;
 }
-.myFlexItem button:active, .MyPanel #title-header div button:active, .MyPanel #the_list_area button:active {
+.MyFlexItem#header-buttons button:active {
   background-color: #e47d29;
   -webkit-box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
           box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
 }
 
-.MyPanel {
+.MyPanelForLists {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -132,78 +163,81 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #f0f0f0;
-}
-.MyPanel #the_list_area#the-table {
-  background-color: red;
-}
-
-.MyColor {
-  background-color: pink;
-  color: white;
+  background-color: #c8ee1f;
+  border: 1px;
+  border-radius: 8px;
+  margin-top: 5px;
+  padding: 10px;
 }
 
-.modal-btn {
-  -webkit-transition: background 250ms;
-  transition: background 250ms;
-  padding: 16px 24px;
-  border-radius: 4px;
-  background-color: #0f0f0f;
-  color: #fcfcfc;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  margin-top: 32px;
+.TableHeader {
+  /* sets the table background color */
+  background-color: #f3f3f3;
+}
+
+.MyButton {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  -webkit-box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+          box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: ghostwhite;
+  cursor: pointer;
   display: inline-block;
-  text-decoration: none;
-}
-.modal-btn:hover, .modal-btn:focus {
-  background-color: rgba(15, 15, 15, 0.8666666667);
-}
-
-.modal {
-  position: absolute;
-  min-height: 100vh;
-  width: 100%;
-  top: 20;
-  left: 20;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  z-index: 2;
-}
-.modal:not(:target) {
-  display: none;
-}
-
-.modal-overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  left: 0;
-}
-
-.modal-content {
-  -webkit-transition: -webkit-transform 1s;
-  transition: -webkit-transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s;
-  background: #fff;
-  width: 75%;
+  font-family: "Segoe UI";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
   position: relative;
-  margin: auto;
-  height: 75%;
-  padding: 48px 24px;
-  border-radius: 4px;
-  max-width: 1000px;
-}
-
-.modal-close {
-  font-size: 36px;
+  text-align: center;
   text-decoration: none;
-  color: inherit;
-  position: absolute;
-  right: 24px;
-  top: 10px;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowra;
+  margin: 5px;
+  background-color: rgba(235, 240, 196, 0.862745098);
+}
+.MyButton#delete-button {
+  background-color: indianred;
+}
+.MyButton#add-button {
+  background-color: limegreen;
+}
+.MyButton#cancel-button {
+  background-color: whitesmoke;
+  color: darkgrey;
+}
+.MyButton:focus:not(:focus-visible):not(.focus-visible) {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+}
+.MyButton:hover {
+  background-color: #f5ea54;
+}
+.MyButton:focus {
+  -webkit-box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
+          box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
+  outline: none;
+}
+.MyButton:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: default;
+}
+.MyButton:active {
+  background-color: #e47d29;
+  -webkit-box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
+          box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
 }/*# sourceMappingURL=base.css.map */

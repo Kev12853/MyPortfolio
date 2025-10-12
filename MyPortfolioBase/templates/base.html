@@ -3,22 +3,6 @@
 
 <!DOCTYPE html>
 
-{% comment %} <style>
-  html, body {
-    height: 100vh;
-    margin: 0;
-  }
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: red;
-    color: white;
-    text-align: center;
-  }
-</style> {% endcomment %}
-
 <html>
 <head>
 
@@ -70,7 +54,7 @@
       <div class="w3-bar w3-black" style="grid-column:2; grid-row:1"  >
         <a href={% url 'home' %} class="w3-bar-item w3-button">Home</a>
         <a href={% url 'tenant-home' %} class="w3-bar-item w3-button">Link 1</a>
-        <a href={% url 'list-tenant' %} class="w3-bar-item w3-button">Link 2</a>
+        <a href={% url 'alist-tenant' %} class="w3-bar-item w3-button">Link 2</a>
         <a href={% url 'test' %} class="w3-bar-item w3-button">Link 3</a>
       </div>
     </header>

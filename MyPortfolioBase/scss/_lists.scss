@@ -1,0 +1,16 @@
+/* sets up the area that holds the lists to be a flex-item */
+@mixin myPanel_for_lists {
+    display: flex;
+    flex-direction: column;
+    background-color: #c8ee1f;
+    border: 1px;
+    border-radius: 8px; // Rounded corners for items
+    margin-top: 5px;
+    padding: 10px; //* Padding inside each item */
+
+}
+
+@mixin table-header {
+    /* sets the table background color */
+    background-color: #f3f3f3;
+}

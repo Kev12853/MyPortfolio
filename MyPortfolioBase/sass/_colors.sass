@@ -6,3 +6,8 @@ $button-text-color: ghostwhite
 $cancel-button-text-color: darkgrey
 $light-theme-text-color: whitesmoke
 $dark-theme-text-color: darkgrey
+
+@mixin myColor($myColor: $myButtonBackgroundColor,
+ $myTextColor: $button-text-color)
+    background-color: $myColor
+    color: $myTextColor

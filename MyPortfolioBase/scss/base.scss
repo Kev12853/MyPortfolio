@@ -1,0 +1,32 @@
+@use 'colors' as color;
+@use 'flex_containers' as flex;
+@use 'lists' as list;
+@use 'buttons' as btn;
+
+.MyColors {
+    @include color.myColor(pink, darkblue);
+}
+
+.MyFlexContainerColumn {
+    @include flex.myFlexContainerColumn;
+}
+
+.MyFlexContainerRow {
+    @include flex.myFlexContainerRow;
+}
+
+.MyFlexItem {
+    @include flex.myFlexItem;
+}
+
+.MyPanelForLists {
+    @include list.myPanel_for_lists;
+}
+
+.TableHeader {
+    @include list.table-header;
+}
+
+.MyButton {
+    @include btn.button-3
+}

@@ -1,0 +1,38 @@
+@use 'buttons' as btn
+@use 'colors' as col
+    
+    
+@mixin myFlexContainer  /* class applied to the main header */      
+    display: flex // Enables flexbox
+    align-items: center //vertically 
+    justify-content: space-between // horizontally */
+    background-color: #f73777
+
+// class applied to each item in the header
+@mixin myFlexItem  
+    align-items: center //* vertically */
+    justify-content: space-between //* horizontally */
+    margin: 10px //* Space around each item */
+    padding: 10px //* Padding inside each item */
+    border: 3px solid #15e2e2 //* Border for items */
+    border-radius: 5px // Rounded corners for items
+    color: green // Text color for items
+    text-align: center // Centered text
+    font-weight: bold // Bold text
+    font-size: 1.2em // Slightly larger text
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) // Subtle shadow for depth */
+    &#header-title-div
+        display: flex
+        flex-basis: 20%
+        align-items: top
+        justify-content: right
+        color: col.$light-theme-text-color
+        font-size: 3.0em
+    &#header-buttons
+        display: flex
+        flex-basis: content
+        align-items: flex-end
+        justify-content: space-between
+
+    button
+       @include btn.button-3

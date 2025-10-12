@@ -1,0 +1,68 @@
+      <section role="dialog" class="modal" id="modal" aria-labelledby="modal-title">
+        <a class="modal-overlay" href="#" tabindex="-1"></a>
+        <div class="modal-content">
+          <a title="Close modal" aria-label="Close modal" href="#" class="modal-close">&times;</a>
+          <div class="w3-container w3-blue w3-round-xlarge" style="width:50%">
+        
+            <h3>Add a new tenant</h3>
+            {{ form }}
+
+          </div>
+          <!--<h2 id="modal-title">Hello there!</h2>-->
+        </div>
+      </section>
+
+      """ def __init__(self, *args, **kwargs):
+        super(TenantCreateForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = "post"
+        self.helper.form_class = "border p-8"
+        self.helper.layout = Layout(
+            Div(
+                Div("name", css_class="md:w-[50%]"),
+                Div("reason", css_class="md:w-[50%]"),
+                css_class="md:flex md:justify-between",
+            ),
+            "first_name",
+            "last_name",
+            "email",
+            "phone",
+            Submit(
+                "submit",
+                "Submit",
+                css_class="text-white bg-blue-700"
+                " hover:bg-blue-800 focus:ring-4 focus:ring-blue-300"
+                " font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600"
+                " dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800",
+            ),
+        )
+"""
+
+
+""" class TenantHomeView(CreateView):
+    model = Tenant
+    template_name = "PropertiesApp/tenant_home.html"
+    form_class = TenantCreateForm
+    success_url = reverse_lazy("tenant_home")  # Adjust the URL name as needed
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["tenants"] = Tenant.objects.all()  # Include all tenants in the context
+        return context
+
+    def post(self, request):
+        form = TenantCreateForm(request.POST)
+        if form.is_valid():
+            tenant = form.save()
+            context = {'tenant': tenant}
+            return render(request,'tenant_home.html#tenant-item', context)  # Redirect to the index view after saving
+
+        context = {'form': form}  # Include the form in the context for error display
+        return render(request, "tenant_home.html", context)
+
+
+    def form_valid(self, form):
+        tenant = form.save()
+        return super().form_valid(form)  # Redirects to success_url after saving
+
+""" 
