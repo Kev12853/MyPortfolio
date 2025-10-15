@@ -1,0 +1,33 @@
+{% if tenants %}
+<table id="the-table">
+  <thead  class="TableHeader">
+    <tr>
+      <th class="px-6 py-3">First Name</th>
+      <th class="px-6 py-3">Last Name</th>
+      <th class="px-6 py-3">Email</th>
+      <th class="px-6 py-3">Phone</th>
+      <th class="px-6 py-3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for tenant in tenants %}
+      <tr>
+        <td class="px-6 py-1">{{ tenant.first_name }}</td>
+        <td class="px-6 py-1">{{ tenant.last_name }}</td>
+        <td class="px-6 py-1">{{ tenant.email }}</td>
+        <td class="px-6 py-1">{{ tenant.phone }}</td>
+        <td class="px-6 py-1">
+          <div>
+            <a href="{% url 'update-tenant' tenant.pk %}" class="MyButton" id="edit-button">Edit</a>
+            <a href="{% url 'delete-tenant' tenant.pk %}" class="MyButton" id="delete-button">Delete</a>
+
+          </div>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No Tenants found</p>
+{% endif %}

@@ -10,10 +10,10 @@
     cursor: pointer;
     display: inline-block;
     font-family: "Segoe UI";
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     line-height: 20px;
-    padding: 6px 16px;
+    padding: 3px 10px;
     position: relative;
     text-align: center;
     text-decoration: none;
@@ -36,6 +36,11 @@
     &#cancel-button {
         background-color: col.$cancel-button-background-color;
         color: col.$cancel-button-text-color;
+    }
+
+    &#edit-button {
+        background-color: col.$edit-button-background-color;
+        color: col.$edit-button-text-color;
     }
 
     &:focus:not(:focus-visible):not(.focus-visible) {

@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.urls import reverse_lazy
 
+from PropertiesApp.business_logic import test1
 from PropertiesApp.models.tenant_model import Tenant
 from PropertiesApp.forms.tenant_forms import (
     QuickAddTenant_Form,
@@ -36,14 +37,22 @@ class QuickAddTenantView(CreateView):
     template_name = "PropertiesApp/tenant_list.html"
     success_url = reverse_lazy("alist-tenant")
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['tenants'] = Tenant.objects.all()
-        return context
-    
+    def post(self, request, *args, **kwargs):
+        form = QuickAddTenant_Form(request.POST)
+        if form.is_valid():
+            tenant = form.save()
+            context={'tenant': tenant}
+            return render(request, 'PropertiesApp/tenant_list.html#add-tenant', context)
+
+        context = {"form": form, "tenants": Tenant.objects.all()}
+        return render(request, "PropertiesApp/tenant_list.html", context)
+
+    def get(self, request, *args, **kwargs):
+        form = QuickAddTenant_Form()
+        context = {"form": form, "tenants": Tenant.objects.all()}
+        return render(request, "PropertiesApp/tenant_list.html", context)
 
 
-    
 class TenantListView(ListView):
     model = Tenant
     form_class = TenantListForm
@@ -63,7 +72,6 @@ class TenantListView(ListView):
     template_name = "PropertiesApp/list_tenant.html"
 
 
-
 class TenantDetailView(DetailView):
     model = Tenant
     form_class = TenantDetailForm
@@ -75,11 +83,17 @@ class TenantUpdateView(UpdateView):
     model = Tenant
     form_class = TenantUpdateForm
     template_name = "PropertiesApp/user_input/f_update_tenant.html"
-    success_url = reverse_lazy("list-tenant")
+    success_url = reverse_lazy("alist-tenant")
+
+    # def post(self, request, *args, **kwargs):
+    #     form = self.get_form()
+    #     if form.is_valid():
+    #         usecase = test1.test()
+    #         # You can call methods on the usecase object here
 
 
 class TenantDeleteView(DeleteView):
     model = Tenant
     form_class = TenantDeleteForm
     template_name = "PropertiesApp/user_input/f_delete_tenant.html"
-    success_url = reverse_lazy("list-tenant")
+    success_url = reverse_lazy("alist-tenant")

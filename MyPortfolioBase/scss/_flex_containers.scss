@@ -12,17 +12,17 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
-    background-color: #6095a075;
+    justify-content: left;
+    //background-color: #6095a075;
     margin: 5px;
     border-radius: 5px; // Rounded corners for items
 }
 
 @mixin myFlexItem {
     /* class applied to each item in the header */
-    align-items: center; //* vertically */
-    justify-content: space-between; //* horizontally */
-    margin: 10px; //* Space around each item */
+    //align-items: center; //* vertically */
+    //justify-content: left; //* horizontally */
+    margin: 4px; //* Space around each item */
     padding: 10px; //* Padding inside each item */
     border: 3px solid #15e2e2; //* Border for items */
     border-radius: 5px; // Rounded corners for items
@@ -39,7 +39,7 @@
         justify-content: left;
         color: col.$light-theme-text-color;
         font-size: 20px;
-        background-color: #6095a075;
+        //background-color: #6095a075;
     }
 
     &#header-buttons {
@@ -47,7 +47,7 @@
         flex-basis: content;
         align-items: flex-end;
         justify-content: left;
-        background-color: #6c60a075;
+        //background-color: #6c60a075;
         button {
             @include btn.button-3;
         }

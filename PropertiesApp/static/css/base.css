@@ -31,23 +31,16 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  background-color: rgba(96, 149, 160, 0.4588235294);
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
   margin: 5px;
   border-radius: 5px;
 }
 
 .MyFlexItem {
   /* class applied to each item in the header */
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 10px;
+  margin: 4px;
   padding: 10px;
   border: 3px solid #15e2e2;
   border-radius: 5px;
@@ -72,7 +65,6 @@
           justify-content: left;
   color: whitesmoke;
   font-size: 20px;
-  background-color: rgba(96, 149, 160, 0.4588235294);
 }
 .MyFlexItem#header-buttons {
   display: -webkit-box;
@@ -86,7 +78,6 @@
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
-  background-color: rgba(108, 96, 160, 0.4588235294);
 }
 .MyFlexItem#header-buttons button {
   -webkit-appearance: none;
@@ -102,10 +93,10 @@
   cursor: pointer;
   display: inline-block;
   font-family: "Segoe UI";
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 20px;
-  padding: 6px 16px;
+  padding: 3px 10px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -129,6 +120,10 @@
 .MyFlexItem#header-buttons button#cancel-button {
   background-color: whitesmoke;
   color: darkgrey;
+}
+.MyFlexItem#header-buttons button#edit-button {
+  background-color: steelblue;
+  color: ghostwhite;
 }
 .MyFlexItem#header-buttons button:focus:not(:focus-visible):not(.focus-visible) {
   -webkit-box-shadow: none;
@@ -189,10 +184,10 @@
   cursor: pointer;
   display: inline-block;
   font-family: "Segoe UI";
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 20px;
-  padding: 6px 16px;
+  padding: 3px 10px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -216,6 +211,10 @@
 .MyButton#cancel-button {
   background-color: whitesmoke;
   color: darkgrey;
+}
+.MyButton#edit-button {
+  background-color: steelblue;
+  color: ghostwhite;
 }
 .MyButton:focus:not(:focus-visible):not(.focus-visible) {
   -webkit-box-shadow: none;

@@ -2,7 +2,7 @@ from django.urls import path
 
 from PropertiesApp.views import dwelling_views, lease_views, tenant_views
 
-urlpatterns = [
+urlpatterns_tenants = [
     path(
         "test.html",
         tenant_views.TestView,
@@ -42,6 +42,31 @@ urlpatterns = [
         tenant_views.tenantHomeView,
         name="tenant-home",
     ),
+    ]
+
+urlpatterns_leases = [
+    path(
+        "create_lease.html", lease_views.CreateNewLease.as_view(), name="create-lease"
+    ),
+    path("list_lease.html", lease_views.LeaseListView.as_view(), name="list-lease"),
+    path(
+        "detail_lease/<int:pk>/",
+        lease_views.LeaseDetailView.as_view(),
+        name="detail-lease",
+    ),
+    path(
+        "update_lease/<int:pk>/",
+        lease_views.LeaseUpdateView.as_view(),
+        name="update-lease",
+    ),
+    path(
+        "delete_lease/<int:pk>/",
+        lease_views.LeaseDeleteView.as_view(),
+        name="delete-lease",
+    ),
+]
+
+urlpatterns_dwellings = [
     path(
         "create_dwelling.html",
         dwelling_views.DwellingCreateView.as_view(),
@@ -67,23 +92,6 @@ urlpatterns = [
         dwelling_views.DwellingDeleteView.as_view(),
         name="delete-dwelling",
     ),
-    path(
-        "create_lease.html", lease_views.CreateNewLease.as_view(), name="create-lease"
-    ),
-    path("list_lease.html", lease_views.LeaseListView.as_view(), name="list-lease"),
-    path(
-        "detail_lease/<int:pk>/",
-        lease_views.LeaseDetailView.as_view(),
-        name="detail-lease",
-    ),
-    path(
-        "update_lease/<int:pk>/",
-        lease_views.LeaseUpdateView.as_view(),
-        name="update-lease",
-    ),
-    path(
-        "delete_lease/<int:pk>/",
-        lease_views.LeaseDeleteView.as_view(),
-        name="delete-lease",
-    ),
 ]
+
+urlpatterns = urlpatterns_tenants + urlpatterns_leases + urlpatterns_dwellings
