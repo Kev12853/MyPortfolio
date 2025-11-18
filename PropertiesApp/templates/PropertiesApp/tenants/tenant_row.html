@@ -1,0 +1,24 @@
+{% comment %} 
+    Individual table row. Called from tbody id="the-table" in tenants.html ...
+    <tbody id="the-table">
+        {% for tenant in tenants %}
+          {% include 'tenants/tenant_row.html' %}
+        {% endfor %}
+
+{% include 'tenants/edit-tenant-modal.html' %}{% endcomment %}
+<tr class="TableRowEven" id="tenant{{ tenant.pk }}">
+    <td class="px-6 py-1">{{ tenant.first_name }}</td>
+    <td class="px-6 py-1">{{ tenant.last_name }}</td>
+    <td class="px-6 py-1">{{ tenant.email }}</td>
+    <td class="px-6 py-1">{{ tenant.phone }}</td>
+    <td class=" flex items-center">
+        <a hx-get="{% url 'editTenant' tenant.pk %}"
+           hx-target="#tenant{{ tenant.pk }}"
+           hx-swap="outerHTML"
+           class="MyButton"
+           id="edit-button">Edit</a>
+        <a href="{% url 'delete-tenant' tenant.pk %}"
+           class="MyButton"
+           id="delete-button">Delete</a>
+    </td>
+</tr>

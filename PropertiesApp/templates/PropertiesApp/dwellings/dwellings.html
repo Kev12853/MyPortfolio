@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Properties</title>
+{% endblock title %}
+
+{% block content %}
+  {% include "dwellings/add_dwelling_modal.html" %}
+  <div class="MyFlexContainerColoumn" id="title-panel">
+    <!-- flex container -->
+    <div class="MyFlexContainerRow" id="main-header">
+      <!-- flex container -->
+      <div id="header-title-div" class="MyFlexItem">
+        <!-- flex item -->
+        <svg xmlns="http://www.w3.org/2000/svg"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke-width="1.5"
+             stroke="currentColor"
+             class="w-8 h-8 me-2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+        </svg>
+        <p>Properties</p>
+      </div>
+    </div>
+    <div id="the_form_area" class="w3-container w3-round-large">
+      <!-- Open the modal using ID.showModal() method -->
+      <button class="btn btn-primary mb-4" onclick="dwelling_modal.showModal()">Add Property</button>
+    </div>
+    <!-- List of items -->
+    <div id="list_area">{% include "dwellings/dwellings_list.html" %}</div>
+  </div>
+{% endblock content %}

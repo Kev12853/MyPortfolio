@@ -1,0 +1,30 @@
+<tr id="tenant{{ tenant.pk }}">
+  <td colspan="5">
+    <form hx-post="{% url 'editTenant' tenant.pk %}"
+          hx-target="#tenant{{ tenant.pk }}"
+          hx-swap="outerHTML"
+          name="kev">
+      {% csrf_token %}
+      <table class="w-full">
+        <tr>
+          <td class="px-6 py-1">{{ form.first_name }}</td>
+          <td class="px-6 py-1">{{ form.last_name }}</td>
+          <td class="px-6 py-1">{{ form.email }}</td>
+          <td class="px-6 py-1">{{ form.phone }}</td>
+          <td>
+            <button type="submit" class="MyButton" id="add-button">Save</button>
+            <button 
+            type="button" 
+            class="MyButton"
+            id="cancel-button"
+            hx-get="{% url 'displayTenant' tenant.pk %}"
+            hx-target="#tenant{{ tenant.pk }}"
+            hx-swap="outerHTML">
+            Cancel
+          </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </td>
+</tr>

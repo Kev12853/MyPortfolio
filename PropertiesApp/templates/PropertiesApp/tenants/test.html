@@ -1,0 +1,23 @@
+    <form hx-post="{% url 'editTenant' tenant.pk %}"
+          hx-target="#tenant{{ tenant.pk }}"
+          hx-swap="outerHTML">
+      {% csrf_token %}
+      <td class="px-6 py-1">
+        {{ form.first_name }}
+      </td>
+      <td>
+        <div>{{ form.last_name }}</div>
+      </td>
+      <td>
+        <div>{{ form.phone }}</div>
+      </td>
+      <td>
+        <div>{{ form.email }}</div>
+      </td>
+      <td>
+        <div>
+          <button type="submit">Save</button>
+          <button type="button">Cancel</button>
+        </div>
+      </td>
+    </form>

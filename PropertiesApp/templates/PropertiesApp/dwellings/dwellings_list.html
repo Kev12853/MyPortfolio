@@ -1,0 +1,36 @@
+<div id="the_list_area" class="MyPanelForLists">
+    <!-- check for tenants-->
+    {% if tenants %}
+      <table id="table_in_dwelling_list">
+        <!-- table column headers -->
+        <thead class="TableHeader">
+          <tr>
+            <th class="px-6 py-3">House</th>
+            <th class="px-6 py-3">Street</th>
+            <th class="px-6 py-3">Town</th>
+            <th class="px-6 py-3">County</th>
+            <th class="px-6 py-3">Post Code</th>
+            <th class="px-6 py-3">Actions</th>
+          </tr>
+        </thead>
+        <!-- table data -->
+        <tbody id="the-table">
+          {% for tenant in tenants %}
+            <!-- include the partial for each row of data, ie for each tenant -->
+            {% include 'tenants/tenant_row.html' %}
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div role="alert" class="alert alert-info">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             fill="none"
+             viewBox="0 0 24 24"
+             class="h-6 w-6 shrink-0 stroke-current">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+          </path>
+        </svg>
+        <span>No Properties found.</span>
+      </div>
+    {% endif %}
+  </div>  

@@ -1,95 +1,146 @@
+<!--
+  ## Purpose of Templates in Django Forms
+
+  Templates in Django play a vital role in rendering forms and displaying them to users. They serve several important purposes when working with forms:
+  
+  ### 1. **Separation of Concerns**
+  
+  Templates allow for a clear separation between the user interface (UI) and the application logic. This makes it easier to maintain the codebase, as changes to the form's presentation can be made without altering the backend logic.
+  
+  ### 2. **Dynamic Rendering**
+  
+  Django templates support dynamic content generation. This means you can generate form fields based on data from the server, allowing for flexibility in how forms are presented based on user context or validation status.
+  
+  ### 3. **Form Validation Feedback**
+  
+  Templates can display real-time feedback based on form validation. When a user submits a form with errors, the template can highlight the specific fields with issues and provide appropriate messages, enhancing user experience.
+  
+  ### 4. **Customization of Presentation**
+  
+  Templates allow developers to customize the look and feel of forms by applying CSS styles, layout choices, and other HTML elements. This customization helps align the application UI with project branding and design requirements.
+  
+  ### 5. **Inclusion of Other Templates**
+  
+  Django supports template inheritance and includes, allowing developers to break down complex forms into reusable components. For instance, you can create base templates for headers, footers, or form fields and include them as needed.
+  
+  ### 6. **Handle Form Submission**
+  
+  Templates facilitate the rendering of the form’s submission actions. This includes setting the correct action URL and method (usually POST) for submitting user input.
+  
+  ### Example Implementation
+  
+  A typical process using templates with forms might look like this:
+  
+  1. **Form Definition**: Define the form in `forms.py`.
+  2. **View Handling**: Create a view that handles GET requests to display the form and POST requests to process the form data.
+  3. **Template Rendering**: Use a template to render the form, which includes the fields and error messages.
+  4. **Feedback and Redirection**: After form submission, the template can show messages based on the outcome (success or error).
+  
+  In summary, templates provide the structure and presentation layer for forms in Django applications, enabling developers to create user-friendly interfaces while maintaining clean separation from application logic.
+-->
 {% load static %}
-{% load crispy_forms_tags%}
-
+{% load django_htmx %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
-
 <html>
-<head>
-
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-
-
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <!-- W3.CSS -->
-   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <!-- <link href="{% static 'css/w3.css' %}" rel="stylesheet">-->
-
     <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">  
-
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway">
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script> 
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/5.1.25/daisyui.css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+          rel="stylesheet"
+          type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- HTMX -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/2.0.7/htmx.min.js" integrity="sha512-IisGoumHahmfNIhP4wUV3OhgQZaaDBuD6IG4XlyjT77IUkwreZL3T3afO4xXuDanSalZ57Un+UlAbarQjNZCTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/2.0.7/htmx.min.js"
+            integrity="sha512-IisGoumHahmfNIhP4wUV3OhgQZaaDBuD6IG4XlyjT77IUkwreZL3T3afO4xXuDanSalZ57Un+UlAbarQjNZCTQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
     <!-- My CSS-->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'css/color.css' %}">-->
 
-    
-  {% block title %}
-    <title>Portfolio Manager</title>
-  {% endblock title %}
-    
-</head>
+    {% block title %}
+      <title>Portfolio Manager</title>
+    {% endblock title %}
 
-<body bgcolor= "red" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+  </head>
+  <body bgcolor="red" hx-headers="{'X-CSRFToken': '{{ csrf_token }}'}">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"> 
+      <symbol id="checkmark" viewBox="0 0 16 16">
+        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+      </symbol>
+      <symbol id="cancel" viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+      </symbol>
+      <symbol id="pencil" viewBox="0 0 16 16">
+        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+      </symbol>
+      <symbol id="trash3" viewBox="0 0 16 16">
+        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+      </symbol>
+      <symbol id="plus" viewBox="0 0 16 16"> 
+        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+    </symbol>
+    </svg>
+    <!-- Main Layout Grid -->
+    <div class="w3-grid"
+         style="grid-template-columns:200px auto"
+         style="height:100vh">
+      <!-- Image (Row 1, Col 1) -->
+      <div class="w3-padding w3-green" style="grid-column:1; grid-row:1">Images</div>
+      <!---->
+      <!-- Top Navigation Bar (Row 1, Col 2) -->
+      <header>
+        {% include "top_navbar.html" %}
+      </header>
+      <!---->
+      <!-- Side Navigation (Row 2, Col 1)-->
+      {% include 'side_navbar.html' %}
+      <!---->
+      <!-- Content (Row 2, Col 2)-->
+      <div class="w3-padding w3-orange" style="grid-column:2; grid-row:2;">
 
-  <!-- Main Layout Grid -->
-  <div class="w3-grid" style="grid-template-columns:200px auto" style="height:100vh">
+        {% block content %}
+        {% endblock content %}
 
-    <!-- Image (Row 1, Col 1) -->
-    <div class="w3-padding w3-green" style="grid-column:1; grid-row:1" >
-      Images
-    </div>
-    <!---->
-
-    <!-- Top Navigation Bar (Row 1, Col 2) -->
-    <header >
-      <div class="w3-bar w3-black" style="grid-column:2; grid-row:1"  >
-        <a href={% url 'home' %} class="w3-bar-item w3-button">Home</a>
-        <a href={% url 'tenant-home' %} class="w3-bar-item w3-button">Link 1</a>
-        <a href={% url 'alist-tenant' %} class="w3-bar-item w3-button">Link 2</a>
-        <a href={% url 'test' %} class="w3-bar-item w3-button">Link 3</a>
       </div>
-    </header>
-    <!---->
-
-    <!-- Side Navigation (Row 2, Col 1)-->
-    {% include 'partials/side_navbar.html' %}
-    <!---->
-
-    <!-- Content (Row 2, Col 2)-->
-    <div class="w3-padding w3-orange" style="grid-column:2; grid-row:2;"  >
-      {% block content %}{% endblock content %}
+      <!---->
+      <!-- Footer (Row 3, Col 1 span 2)-->
+      <div class="footer">
+        <p>Footer</p>
+      </div>
     </div>
-    <!---->
+    <!-- End Main Layout Grid -->
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
 
-    <!-- Footer (Row 3, Col 1 span 2)-->
-    <div class="footer">
-      <p>Footer</p>
-    </div>
-
-  </div>
-
-  <!-- End Main Layout Grid -->
-
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-    }
-
- 
-
-</script>
-</body>
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+  </body>
 </html>

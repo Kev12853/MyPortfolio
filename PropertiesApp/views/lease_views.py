@@ -9,7 +9,7 @@ from PropertiesApp.models.lease_model import Lease
 class CreateNewLease(CreateView):
     model = Lease
     form_class = LeaseCreateForm
-    template_name = "PropertiesApp/user_input/f_create_lease.html"
+    template_name = "PropertiesApp/f_create_lease.html"
     success_url = reverse_lazy("list-lease")
 
 
@@ -30,12 +30,12 @@ class LeaseDetailView(DetailView):
 class LeaseUpdateView(UpdateView):
     model = Lease
     form_class = LeaseListForm
-    template_name = "PropertiesApp/user_input/f_update_lease.html"
+    template_name = "PropertiesApp/f_update_lease.html"
     success_url = reverse_lazy("list-lease")
 
 
 class LeaseDeleteView(DeleteView):
     model = Lease
     form_class = LeaseDeleteForm
-    template_name = "PropertiesApp/user_input/f_delete_lease.html"
+    template_name = "PropertiesApp/f_delete_lease.html"
     success_url = reverse_lazy("list-lease")

@@ -1,0 +1,9 @@
+from django.core.management.base import BaseCommand
+from PropertiesApp.models.dwelling_model import load_students1
+
+class Command(BaseCommand):
+    help = 'Load students into the database'
+
+    def handle(self, *args, **kwargs):
+        load_students1()
+        self.stdout.write(self.style.SUCCESS('Successfully loaded students'))
