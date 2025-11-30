@@ -40,6 +40,15 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
         exclude = []
+        
+    # def save(self, commit=True, **kwargs):
+    #     isNewRecord = kwargs.pop("isNewRecord", False)
+    #     instance = super().save(commit=False)
+
+    #     # pass custom kwargs to model.save()
+    #     instance.save(isNewRecord=isNewRecord)
+
+    #     return instance
 
 
 def get_student_list(request):
@@ -62,9 +71,10 @@ def get_student_list(request):
                 )  # Removes leading slashes
         else:
             student.profile_image_url = (
-                "mymedia/images/IMG_2104.jpg"  # Provide a path to a default image
+                "mymedia/images/default_image.jpg"  # Provide a path to a default image
             )
         print("Profile Image URL:", student.profile_image_url)
+
     context["students"] = students
 
     return render(request, "students/partials/student_list.html", context)
@@ -80,12 +90,18 @@ def add_student_submit(request):
     form = StudentForm(request.POST, request.FILES)
     context["form"] = form
     if form.is_valid():
-        context["student"] = form.save()
+        try:
+            context["student"] = form.save()
+        except TypeError as e:
+            print(f"Error: {e}")  # or log it as needed
+        #context["student"] = form.save(isNewRecord=True)
         student = context["student"]
-        if student.profile_image:  # if there is an image
+        # if there is an image
+        if student.profile_image:  
             original_url = student.profile_image.url            
             student.profile_image_url = original_url.lstrip("/")  # Removes leading slashes
-            if student.profile_image_thumbnail:  # if there is an thumbnail image
+            # if there is an thumbnail image
+            if student.profile_image_thumbnail:  
                 thumbnail_url = student.profile_image_thumbnail.url
                 student.profile_image_thumbnail_url = thumbnail_url.lstrip(
                     "/"
@@ -102,7 +118,9 @@ def add_student_submit(request):
         return render(request, "students/partials/add_student.html", context)
         # if here then form is valid and has been saved or is a get request so has been
         # so prepare the image url's
-       
+    print(student.profile_image_thumbnail_url)
+    print(student.profile_image_url)
+    
     return render(request, "students/partials/student_row.html", context)
 
 
@@ -147,7 +165,7 @@ def edit_student_submit(request, student_pk):
             "/"
         )  # Removes leading slashes
         if student.profile_image_thumbnail:
-            # original_url = student.profile_image_thumbnail.url
+            original_url = student.profile_image_thumbnail.url
             student.profile_image_thumbnail_url = original_url.lstrip(
                 "/"
             )  # Removes leading slashes
@@ -157,7 +175,7 @@ def edit_student_submit(request, student_pk):
             )  # Removes leading slashes
     else: # no image proided so use place holder image
         student.profile_image_url = (
-            "mymedia/images/IMG_2104.jpg"  # Provide a path to a default image
+            "mymedia/images/default_image.jpg"  # Provide a path to a default image
         )
 
     # update the html

@@ -21,7 +21,9 @@
         {{ form.profile_image }}
         {{ form.profile_image.errors }}
     </td>
-    <td><a href="#" 
+    <td>
+        <input type="hidden" name="form_type" value="new">
+        <a href="#" 
             hx-post="{% url 'add_student_submit' %}" 
             hx-target="closest tr" 
             hx-swap="outerHTML"

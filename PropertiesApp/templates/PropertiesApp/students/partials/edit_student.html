@@ -24,6 +24,7 @@
         {{ form.profile_image.errors }}
     </td>
     <td>
+        <input type="hidden" name="form_type" value="edit">
         <a href="#"
            hx-post="{% url 'edit_student_submit' student.pk %}"
            hx-target="closest tr"

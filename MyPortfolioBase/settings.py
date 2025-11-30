@@ -146,7 +146,8 @@ STATIC_URL = '/static/'
 
 # Define the MEDIA_URL and MEDIA_ROOT
 MEDIA_URL = "/mymedia/"
-MEDIA_ROOT = BASE_DIR / 'media'
+# MEDIA_ROOT = "C:/Users/kev12/Pictures"
+MEDIA_ROOT = "C:/Users/kev12/Documents/Django/MyPortfolio/media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

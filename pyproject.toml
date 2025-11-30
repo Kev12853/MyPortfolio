@@ -1,0 +1,10 @@
+[tool.ruff]
+line-length = 88  # Set your preferred line length
+
+# Select rule for excessive blank lines
+select = ["E303", "E305"]  # E303: Too many blank lines, E305: Expected to see a blank line after #
+
+[tool.djlint]
+format = "html"  # Specify you're working with HTML templates
+line_length = 80  # Set your preferred line length
+ignore = ["H008"]  # Specify warning codes to ignore
